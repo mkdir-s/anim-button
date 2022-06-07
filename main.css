@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wave-btn {
+    width: 280px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+    transition: all .8s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+.wave-btn:hover .wave-btn__waves {
+    top: -50px;
+}
+.wave-btn:hover {
+    border-radius: 10px;
+    transition: all .8s ease .2s;
+    box-shadow: 0 0 40px rgba(73, 115, 255, .6);
+}
+.wave-btn__text {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+.wave-btn__waves {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-color: #4973ff;
+    top: 0;
+    left: 0;
+    box-sizing: 0 0 50px rgba(0, 0, 0, .5);
+    transition: all .8s ease;
+}
+.wave-btn__waves::before,
+.wave-btn__waves::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    transform: translate3d(-50%, -96%, 0) rotate(0deg) scale(1);
+}
+.wave-btn__waves::before {
+    background-color: #000;
+    border-radius: 48%;
+    animation: waves 5s infinite linear;
+}
+.wave-btn__waves::after {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 44%;
+    animation: waves 10s infinite linear;
+}
+
+@keyframes waves {
+    0% {
+        transform: translate3d(-50%, -96%, 0) rotate(0deg) scale(1);
+    }
+    100% {
+        transform: translate3d(-50%, -96%, 0) rotate(360deg) scale(1);
+    }
+}
